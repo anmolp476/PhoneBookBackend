@@ -54,7 +54,7 @@ app.post("/api/persons", (request, response) => {
 app.delete("/api/persons/:id", (request, response) => {
   const thisId = request.params.id;
 
-  Person.findOneAndDelete({ id: { thisId } }, (err, docs) => {
+  Person.findOneAndDelete({ _id: new Object(thisId) }, (err, docs) => {
     if (err) {
       console.log(err);
     }
